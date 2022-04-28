@@ -20,7 +20,7 @@ jobs:
           git submodule update --remote --merge
           export UPSTREAM="$(cd upstream && git remote get-url origin)"
           export COMMIT_SHA="$(cd upstream && git rev-parse HEAD)"
-          git commit -m "Update upstream to ${UPSTREAM}/commit/${COMMIT_SHA}" || echo "No changes"
+          git commit -am "Update upstream to ${UPSTREAM}/commit/${COMMIT_SHA}" || echo "No changes"
           git push origin main
         env:
           BOT_PUBLIC_GITHUB_TOKEN: ${{ secrets.BOT_PUBLIC_GITHUB_TOKEN }}
