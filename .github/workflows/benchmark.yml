@@ -2,6 +2,10 @@ name: Benchmark
 on:
   push: {}
   workflow_dispatch: {}
+  
+permissions:
+  contents: read
+  id-token: write
 
 jobs:
   build-with-docker:
@@ -26,6 +30,6 @@ jobs:
         with:
           submodules: recursive
       - uses: depot/setup-action@v1
-      - run: depot build --no-load ./upstream
-        env:
-          DEPOT_TOKEN: ${{ secrets.DEPOT_BENCHMARK_TOKEN }}
+      - uses: depot/build-push-action@v1
+        with:
+          context: ./upstream
