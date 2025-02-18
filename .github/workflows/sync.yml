@@ -7,9 +7,9 @@ on:
 jobs:
   sync:
     name: Sync With Upstream
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_PUBLIC_GITHUB_TOKEN }}
