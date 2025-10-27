@@ -23,6 +23,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          build-args: |
+            BUILDKIT_CONTEXT_KEEP_GIT_DIR=1
 
   build-with-depot:
     name: Build with Depot
@@ -37,3 +39,5 @@ jobs:
           context: ./upstream
           platforms: linux/amd64,linux/arm64
           project: j9n4kdn8jn
+          build-args: |
+            BUILDKIT_CONTEXT_KEEP_GIT_DIR=1
